@@ -1,0 +1,22 @@
+
+  <div *ngFor="let user of userlist$ | async">
+      
+    <div class="card" id="forlist">
+      <div>
+          <img src="https://cdn1.imggmi.com/uploads/2019/1/15/7acc37b82c79a494ee597fecbccd42b8-full.png"/>
+      </div>
+      <div>
+          <div><b>Username: </b> {{user.username}}</div>
+          <div><b>Name: </b> {{user.name}}</div>
+          <div><b>Surname: </b> {{user.surname}}</div>
+          <div><b>Stars: </b> {{user.stars.low}} </div>
+      </div>
+     <div>
+       <!-- <button  class="btn btn-warning"><img src="https://cdn1.imggmi.com/uploads/2019/1/15/6420f190fa172216fd097709defa842a-full.png"></button>
+       <button class="btn btn-warning"><img src="https://cdn1.imggmi.com/uploads/2019/1/15/636295c37caae89d1f8b182581eb5d67-full.png"></button> -->
+       <button class="btn btn-outline-light" (click)="userLiked(user)" ><img src="https://cdn1.imggmi.com/uploads/2019/1/15/6420f190fa172216fd097709defa842a-full.png"></button>
+       <button class="btn btn-outline-light" (click)="userDisliked(user)"><img src="https://cdn1.imggmi.com/uploads/2019/1/15/636295c37caae89d1f8b182581eb5d67-full.png"></button>
+       <button class="btn btn-outline-light" (click)="addFriend(user)" ><img src="https://cdn1.imggmi.com/uploads/2019/1/15/e58a573d77fbb72fa9f59bde50206a79-full.png"></button>
+      </div>
+    </div>  
+  </div>

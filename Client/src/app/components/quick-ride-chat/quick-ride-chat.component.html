@@ -1,0 +1,53 @@
+<div >
+
+    <carousel>  
+    <slide
+    *ngFor = "let chat of chats$ | async"
+    >
+
+    <div 
+    *ngIf = "chat !== undefined"
+    (click)='enterChatRoom(chat)'
+    class="text-center py-5 bg-primary text-white">
+      <h6>chat room</h6>
+      <h3>{{chat.chatUser}}</h3>
+
+      <div class="lead">
+
+        <p>new message</p>
+        <h4>{{chat.message}}</h4>
+      </div>
+    </div>
+  
+    </slide>
+  </carousel>
+  <div 
+  *ngIf= "chatusername_iz_emita !== undefined"
+  class="btn-success">
+    Active chat room: {{chatusername_iz_emita}}
+  </div>
+  <div 
+  *ngIf= "chatusername_iz_emita === undefined && user !== null"
+  class="btn-success">
+    Active chat room: {{user.username}}
+  </div>
+  <div class="card">    
+    <textarea 
+    class="card" 
+    style="font-weight: bold" 
+    rows="7"
+    disabled
+    >
+    {{bigMessage}}
+    </textarea>
+
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" [(ngModel)] = "message" class="form-control" placeholder="Write message" aria-label="Recipient's username">
+    <button class="input-group-append btn btn-warning font-weight-bold" (click) = "sendMessage2()">
+      <!-- <span class="btn btn-warning font-weight-bold" (click) = "sendMessage2()">SEND</span> -->
+      SEND
+    </button>
+  </div>
+
+</div>

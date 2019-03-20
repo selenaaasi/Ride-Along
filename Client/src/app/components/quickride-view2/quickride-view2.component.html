@@ -1,0 +1,17 @@
+<app-navbar></app-navbar>
+
+<div class="row" id="container">
+
+  <div class="col-2">
+    <app-quick-ride-inputs2 (qrcreatedClickedEvent)="onqrCreatedClickedEvent($event)">
+    </app-quick-ride-inputs2>
+  </div>
+  <div class="col">
+    <app-quick-ride-map (markerClickedEvent)="onMarkerClickedEvent($event)">
+    </app-quick-ride-map>
+  </div>
+  <div class="col-2">
+    <app-quick-ride-chat [chatusername_iz_emita]="chatusername"></app-quick-ride-chat>
+  </div>
+
+</div> 

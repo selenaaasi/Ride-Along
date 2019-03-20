@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-warning rounded ">
+  <a class="navbar-brand" routerLink="/profile">
+            <!-- logo -->
+      <img src="https://image.ibb.co/nLLkZx/logosmanjeni.png" alt="Image not loaded properly,refreshing.." style="width: 90px">
+  </a>
+  <!-- <div
+  *ngFor="let not of numOfNot"
+  >
+  {{not}}
+  </div> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample09">
+
+    <form class="form-inline my-2 my-md-0">
+        <li class="btn btn-warning font-weight-bold"  routerLink="/create-carpool-ride" >
+          <img src="https://cdn1.imggmi.com/uploads/2019/1/9/86ea825cf7c492b7e866ccc4bf747c2d-full.png">        
+          CREATE CARPOOL RIDE
+        </li>
+        <li class="btn btn-warning font-weight-bold"  routerLink="/find-rides" >
+          <img src="https://cdn1.imggmi.com/uploads/2019/1/9/9a9e067c849bee1b1cb721ee10f1d597-full.png">        
+          FIND RIDES
+        </li>
+        <li class="btn btn-warning font-weight-bold"  routerLink="/quick-ride" >
+          <img src="https://cdn1.imggmi.com/uploads/2019/1/9/41cee410f8e03397b8f1766bf4f17c69-full.png">        
+          CREATE QUICK RIDE
+        </li>
+        <div class="nav-item active font-weight-bold">
+          <div 
+            *ngIf = 'user === undefined || user === "error"'
+            class="btn btn-warning font-weight-bold" 
+            routerLink="/profile">
+            <img src="https://cdn1.imggmi.com/uploads/2019/1/9/f970b205c5f350126aec21ace2d397a2-full.png">        
+            PROFILE
+        </div>
+        <!-- <div 
+        *ngIf = 'user.name === undefined  || user.name === ""'
+        class="btn btn-warning font-weight-bold" 
+        routerLink="/profile">
+        <img src="https://cdn1.imggmi.com/uploads/2019/1/9/f970b205c5f350126aec21ace2d397a2-full.png">        
+
+        PROFILE
+        </div> -->
+        <div
+          *ngIf = 'user !== undefined' 
+          class="btn btn-warning font-weight-bold" 
+          routerLink="/profile">
+          <img src="https://cdn1.imggmi.com/uploads/2019/1/9/f970b205c5f350126aec21ace2d397a2-full.png">        
+          {{user.name | uppercase}}
+          </div>
+
+      </div>
+      <label class="btn btn-warning font-weight-bold"  routerLink="/quick-ride">
+        <img src="https://cdn1.imggmi.com/uploads/2019/1/9/9f48dd7acbaabeec1ac613bffce6bf91-full.png">        
+           HOME
+      </label>
+
+
+
+    </form>
+  </div>
+</nav>
+
+

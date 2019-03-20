@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="row">
+            <div class="col card">
+                  <div class="input-group"> 
+                    <input class="form-control" placeholder="yyyy-mm-dd"
+                          name="dp" [(ngModel)]="data" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><mat-icon>MENU</mat-icon> </button>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1"></label>
+                  <input type="text" class="form-control" [(ngModel)]="origin" name="origin" placeholder="Origin">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" [(ngModel)]="destination" name="destination" placeholder="Destination">
+                </div>
+              <button type="button" class="btn btn-warning" (click)="findRides()" data-toggle="collapse" data-target="#thinking5"><b>FIND</b></button>
+              <small id='thinking5' class="collapse form-text text-muted text-center">Please wait 5 seconds, I am thinking...</small>
+
+            </div> 
+            <div class="col card" >
+                <div  *ngFor="let list of findRides$| async">
+                    <!-- <div  *ngFor="let list of findRides"> -->
+                       
+                      <div class="media border p-3">
+                        <img src="https://cdn1.imggmi.com/uploads/2019/1/13/f3b02c893e43969828ec74d341a2d69c-full.png"  class="mr-3 mt-3 rounded-circle" >
+                        <div class="media-body ">
+                          <h4>Origin:<small><i>{{myOrigin}}</i></small></h4>
+                          <h4>Destination:<small><i>{{myDestination}}</i></small></h4>
+                          <p>Data:<small><i>{{myData.day}}.{{myData.month}}.{{myData.year}}</i></small></p>
+                          <h4>Users:</h4>
+                          <div *ngFor="let user of listUser">                   
+                            <div class="row">
+                                <h5  class="btn btn-outline-warning" (click)="sendNotification(user)" className="stops"><i>{{user}}</i></h5>
+                              </div>
+                            </div>
+                        </div>
+                        <h5>Stops</h5>
+                        <div class="col" *ngFor="let s of list">
+                          <div class="row">
+                                <p className="stops"> <img src="https://cdn1.imggmi.com/uploads/2019/1/15/5465db53391aa171ec4ae1cfd8a7542a-full.png"  class="mr-3 mt-3 rounded-circle" ></p>
+                                <p className="stops"><i>{{s}}</i></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div> 
+            </div>  
+
+</div>

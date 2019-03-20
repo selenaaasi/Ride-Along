@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+<div class="">
+    <div class="row">
+      
+        <div class="col card">
+        <h2>ADD NEW RIDE</h2>
+
+            <div class="mojDiv">
+                <label for="exampleFormControlInput1"></label>
+                <form class="form-inline">
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd"
+                               name="dp" [(ngModel)]="data" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><mat-icon>menu</mat-icon> </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <label for="exampleFormControlInput1"></label>
+                  <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+                  <hr>
+            <form>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1"></label>
+                  <input type="text" class="form-control" [(ngModel)]="origin" name="origin"   placeholder="Origin">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1"></label>
+                    <input type="text" class="form-control" [(ngModel)]="destination" name="destination"   placeholder="Destination">
+                  </div>
+
+                    <small  id="stopsHelp" class="form-text text-muted">YOU CAN ADD MAXUMUM 3 STOPS</small>                                              
+                    <div class="input-group mb-3 " >
+                        <input type="text" class="form-control" aria-describedby="stopsHelp" [(ngModel)]="stop" name="stop"   placeholder="YOUR STOP"> 
+                        <button [disabled]="click==3" class="btn btn-warning" (click)="addStop(stop)">ADD STOP</button>
+                    </div>
+
+
+            
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">NUMBER OF SEATS</label>
+                  <select class="form-control" id="freeSets" [(ngModel)]="seats" name="seats">
+                    <option *ngFor="let c of countries" [ngValue]="c">{{c}}</option>
+                  </select>
+                </div>
+              </form>
+              <button type="button" class="btn btn-warning" (click)="addRide()" value="Add ride!" routerLink="/profile">Submit</button>
+            </div> 
+    
+        </div>
+        <div class="col card">
+          <div className="Stops">
+                <label for="exampleFormControlTextarea1"> </label>
+                <input class="form-control" id="textArea" rows="10" *ngFor="let s of stops" value={{s}} disabled>
+              </div>
+            </div>
+        </div>
+    
+    
+</div>

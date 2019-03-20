@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+
+<div class="row text-center" >
+  <div class="col card">
+    <h3>{{name}}</h3>
+
+    <div class="text-center">
+        <img src="https://cdn1.imggmi.com/uploads/2019/1/15/58f401092edb8189cb1fd9079aab269d-full.png" 
+        class="rounded" 
+        alt="Slika korisnika nije pronadjena... :/">
+    </div>
+
+    <app-settings [user] = 'user'> </app-settings>
+  </div>
+  <div class="col">
+      <app-carpool-ride-list></app-carpool-ride-list>
+    <app-user-list-view></app-user-list-view>
+  </div>
+</div>

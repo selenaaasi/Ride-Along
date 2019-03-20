@@ -1,0 +1,18 @@
+<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+        <div class="row nav flex-column nav-pills">
+                <input [placeholder]="placeholderOrigin" class="input-group-text" ngx-google-places-autocomplete (onAddressChange)="handleAddressChangeOrigin($event)" />
+                <button type="button" class="btn btn-warning font-weight-bold" (click)="findOrigin()">Find origin</button>
+                <button type="button" class="btn btn-warning font-weight-bold" (click)="clearOrigin()" >Clear origin</button>
+        </div>
+        <div class="row nav flex-column nav-pills">
+                <input [placeholder]="placeholderDestination" class="input-group-text" ngx-google-places-autocomplete (onAddressChange)="handleAddressChangeDestination($event)" />
+                <button type="button" class="btn btn-warning font-weight-bold" (click)="findDestination()">Find destination</button>
+                <button type="button" class="btn btn-warning font-weight-bold" (click)="clearDestination()" >Clear destination</button>
+        </div>
+        <div class="row nav flex-column nav-pills">
+                <button type="button" class="btn btn-light font-weight-bold" (click)="createQuickRide()" >Create a quick ride!</button>
+                <button type="button" class="btn btn-light font-weight-bold" (click)="deleteQuickRide()" routerLink='/quick-ride'>Delete my quickride</button>
+                <button class="btn btn-light font-weight-bold" (click)="refreshMap()" routerLink='/quick-ride'>Refresh map</button>
+        </div>
+</div>

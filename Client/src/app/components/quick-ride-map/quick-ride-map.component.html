@@ -1,0 +1,44 @@
+<div id="container">
+<!-- <div> -->
+
+
+<agm-map [latitude]="mapLat" [longitude]="mapLng" [zoom]="zoom"  >
+    <agm-marker 
+    [latitude]="mapLat" 
+    [longitude]="mapLng" 
+    iconUrl="https://cdn1.imggmi.com/uploads/2019/1/12/5d59353f6ecd7e88c281cf0c7a6b89bf-full.png"
+    [animation]="'DROP'"
+    title='Click to see additional informations about QuickRide mode!'
+    >
+    <agm-info-window>This mode allows you to share a taxi with other users.After you create your Quick Ride,you can click on other users origin or destination marker to start chatting,enjoy!</agm-info-window>
+    </agm-marker>   
+    <agm-marker  *ngFor="let marker of origindestinationmarkers$ | async" 
+      [latitude]="marker.lat" 
+      [longitude]="marker.lng"  
+      [iconUrl]="marker.icon"
+      [animation]="'DROP'"
+      title='This is my origin!'
+      >
+        <agm-info-window><strong>This is my origin!</strong></agm-info-window>
+    </agm-marker>
+
+      <agm-direction *ngFor="let quickride of quickridespath$ | async"
+      [origin]="{ lat: quickride.originlat, lng: quickride.originlng }" 
+      [destination]="{ lat: quickride.destinationlat, lng: quickride.destinationlng }" 
+      [renderOptions]="quickride.renderoptions" 
+      >
+      </agm-direction>
+      <agm-marker  *ngFor="let marker of quickridesmarkers$ | async" 
+      [latitude]="marker.lat" 
+      [longitude]="marker.lng"  
+      [iconUrl]="marker.icon"
+      (markerClick)="clickedMarker(marker.username)"
+      title='Click here to start chat with {{marker.username}}'
+      >
+        <agm-info-window><strong>You have started chat with {{marker.username}}!</strong></agm-info-window>
+      </agm-marker>
+
+
+</agm-map> 
+</div>
+
